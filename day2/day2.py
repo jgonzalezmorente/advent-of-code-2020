@@ -13,10 +13,7 @@ def convertPassword(p):
 
 def isOk(p):
     counter = Counter(p['password'])[p['char']]
-    if counter >= p['min'] and counter <= p['max']:
-        return True
-    else:
-        return False
+    return (counter >= p['min'] and counter <= p['max'])
 
 def isOk2(p):
     try:
