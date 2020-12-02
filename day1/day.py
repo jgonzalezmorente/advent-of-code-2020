@@ -6,7 +6,6 @@ expense_report.sort()
 expense_report = tuple(expense_report)
 
 # Primera parte
-
 print('==================== PRIMERA PARTE ====================')
 
 def search_sum(list, target_sum):
