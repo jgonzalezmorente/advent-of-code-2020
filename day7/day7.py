@@ -9,7 +9,7 @@ print('==================== PRIMERA PARTE ====================')
 rules = []
 with open('sample_input.txt') as input:
     for r in input:
-        r_sep = re.sub(r' |bags|\d+|bag|\.', '', r.strip()).split('contain')            
+        r_sep = re.sub(r' |bags?|\d+|\.', '', r.strip()).split('contain')            
         rules.append((r_sep[0], r_sep[1].split(',') if r_sep[1] != 'noother' else []))
 
 def get_bag_colors_1_level(color):
@@ -55,7 +55,7 @@ def num_bags_containing(color):
 rules = []
 with open('input.txt') as input:
     for r in input:
-        r_sep = re.sub(r' |bags|bag|\.', '', r.strip()).split('contain')
+        r_sep = re.sub(r' |bags?|\.', '', r.strip()).split('contain')
         bags_inside = [split_num_color(bi) for bi in (r_sep[1].split(',') if r_sep[1] != 'noother' else [])]
         rules.append((r_sep[0], bags_inside))
 
