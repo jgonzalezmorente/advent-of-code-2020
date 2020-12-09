@@ -40,16 +40,16 @@ print('==================== SEGUNDA PARTE ====================')
 
 def search_subset(liminf):
     s = 0
-    for limsup in range(liminf + 2, input.index(n)):
+    for limsup in range(liminf + 1, input.index(n)):
         if not s:
-            s = sum(input[liminf:limsup])
+            s = sum(input[liminf: (limsup + 1)])
         else:
-            s+= input[limsup - 1]
+            s+= input[limsup]
         if s == n:
             return input[liminf:limsup]
     return []
 
-for liminf in range(len(input)-1):
+for liminf in range(input.index(n) - 1):
     subset = search_subset(liminf)
     if subset:
         break
