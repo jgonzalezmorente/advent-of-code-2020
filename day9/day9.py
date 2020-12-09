@@ -42,11 +42,11 @@ def search_subset(liminf):
     s = 0
     for limsup in range(liminf + 1, input.index(n)):
         if not s:
-            s = sum(input[liminf: (limsup + 1)])
+            s = sum(input[liminf: (limsup+1)])
         else:
             s+= input[limsup]
         if s == n:
-            return input[liminf:limsup]
+            return input[liminf: (limsup+1)]
     return []
 
 for liminf in range(input.index(n) - 1):
