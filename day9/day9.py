@@ -39,8 +39,13 @@ print(n)
 print('==================== SEGUNDA PARTE ====================')
 
 def search_subset(liminf):
-    for limsup in range(liminf + 1, len(input)):
-        if sum(input[liminf:limsup]) == n:
+    s = 0
+    for limsup in range(liminf + 2, input.index(n)):
+        if not s:
+            s = sum(input[liminf:limsup])
+        else:
+            s+= input[limsup - 1]
+        if s == n:
             return input[liminf:limsup]
     return []
 
