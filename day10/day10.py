@@ -1,4 +1,4 @@
-with open('d:\\advent-of-code-2020\\day10\\input.txt') as input_file:
+with open('input.txt') as input_file:
     input = [int(n.strip()) for n in input_file]
 
 
