@@ -76,3 +76,4 @@ for action in actions:
     
 manhattan = abs(position[0]) + abs(position[1])
 print(manhattan)
+# %%
