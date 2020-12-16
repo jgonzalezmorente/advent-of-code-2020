@@ -23,13 +23,13 @@ class Game(object):
         while (self.turn_number != number):
             self.next()
 
-            if (self.turn_number % 5000 == 0):
+            if (self.turn_number % 100 == 0):
                 print(f'{int(100*self.turn_number/number)}%')
 
         return self.turns[0]
 
 game = Game([20, 9, 11, 0, 1, 2])
-game.get_turn(30000)
+game.get_turn(2020)
 
 
 # %%
@@ -65,16 +65,13 @@ class Game2(object):
         while (self.turn_number != number):
             self.next()
 
-            if (self.turn_number % 5000 == 0):
+            if (self.turn_number % 1500000 == 0):
                 print(f'{int(100*self.turn_number/number)}%')
 
         return self.last
 
-game2 = Game2([0,3,6])
-print(game2.next())
-print(game2.next())
-print(game2.next())
-print(game2.next())
-#game2.get_turn(2020 + 4)
+l = [20, 9, 11, 0, 1, 2]
+game2 = Game2(l)
+game2.get_turn(30000000 - len(l))
     
 # %%
