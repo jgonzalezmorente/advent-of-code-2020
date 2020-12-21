@@ -47,11 +47,7 @@ with open('input.txt') as input_file:
 def not_valid_for_any(number):
     return all(map(lambda ticket: not ticket.contains(number), ticket_fields))
 
-
-print('==================== PRIMERA PARTE ====================')
-print(sum(map(lambda nt: sum(filter(not_valid_for_any, nt)), nearby_tickets)))
-
-print('==================== SEGUNDA PARTE ====================')
+print('Parte 1:', sum(map(lambda nt: sum(filter(not_valid_for_any, nt)), nearby_tickets)))
 
 def get_set_fields(number):
     return set(map(lambda tf: tf.name, filter(lambda tf: tf.contains(number), ticket_fields)))
@@ -62,14 +58,11 @@ def nearby_tickets_to_columns():
 
 nearby_tickets = list(filter(lambda nt: all(map(lambda number: not not_valid_for_any(number), nt)), nearby_tickets))
 
-
 nearby_tickets_columns = nearby_tickets_to_columns()
-
 
 sets = list(map(lambda col: reduce(lambda s1, s2: s1.intersection(s2), map(get_set_fields, col)), nearby_tickets_columns))
 
 def set_columns_fields(acc={}):
-
     element = None
     for i, set in enumerate(sets):
         if len(set) == 1:            
@@ -89,4 +82,4 @@ columns_fields = set_columns_fields()
 
 columns_fields_departure = dict(filter(lambda x: x[0].startswith('departure'), columns_fields.items()))
 
-print(reduce(mul, map(lambda i: my_ticket[i], columns_fields_departure.values())))
+print('Parte 2:', reduce(mul, map(lambda i: my_ticket[i], columns_fields_departure.values())))
